@@ -5,7 +5,11 @@
 function myFunction() {
   document.getElementById("text").innerHTML = "You deleted my text!";
     document.getElementById("butt").innerHTML="Bring back";
+    document.getElementById("butt").onClick="mySecond()";
 }
+            function mySecond(){
+                document.getElementById("text").innerHTML="NOPE! too late";
+            }
 </script>
     </head>
 <body>
