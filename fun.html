@@ -9,6 +9,10 @@ function myFunction() {
 }
             function mySecond(){
                 document.getElementById("text").innerHTML="NOPE! too late";
+                document.getElementById("butt").onclick= function() {myThird()};
+            }
+            function myThird(){
+                window.location.assign("http://www.w3schools.com");
             }
 </script>
     </head>
