@@ -16,6 +16,10 @@ alert("Your name is " + name);
             function myThird(){
                 window.location.assign("http://saarinenemma.github.io/fun.html");
             }
+            function myInputFunction() {
+  var x = document.getElementById("myInput").value;
+  document.getElementById("demo").innerHTML = "You wrote: " + x;
+}
 </script>
     </head>
 <body>
@@ -50,5 +54,12 @@ alert("Your name is " + name);
         <p style="padding-top:-10;font-size:75%">linklinklinklink<br>link<br>linklink link
     </section>
         <button id="butt" type="button" onclick="myFunction()">DELETE</button>
+    <p>Write something in the text field to trigger a function.</p>
+
+<input type="text" id="myInput" oninput="myInputFunction()">
+
+<p id="demo"></p>
+
+
 </body>
 </html>
