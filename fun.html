@@ -6,6 +6,8 @@ function myFunction() {
   document.getElementById("text").innerHTML = "You deleted my text!<br>Click restore to bring info back";
     document.getElementById("butt").innerHTML="RESTORE";
     document.getElementById("butt").onclick= function() {mySecond()};
+    var name = window.prompt("Enter your name: ");
+alert("Your name is " + name);
 }
             function mySecond(){
                 document.getElementById("text").innerHTML="NOPE! too late";
