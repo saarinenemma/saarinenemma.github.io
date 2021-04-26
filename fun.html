@@ -2,37 +2,92 @@
 <html>
     <head>
         <script>
-function myFunction() {
-  document.getElementById("text").innerHTML = "You deleted my text!<br>Click restore to bring info back";
-    document.getElementById("butt").innerHTML="RESTORE";
-    document.getElementById("butt").onclick= function() {mySecond()};
-    var name = window.prompt("Enter your name: ");
-alert("Your name is " + name);
-}
-            function mySecond(){
-                document.getElementById("text").innerHTML="NOPE! too late";
-                document.getElementById("butt").onclick= function() {myThird()};
+        var mystery = Math.floor(Math.random() * 100) + 1;
+        var numGuess=0;
+        var currGuess=500;
+        function myFunction() {
+            document.getElementById("text").innerHTML = "You deleted my text!<br>Click restore to bring info back";
+            document.getElementById("butt").innerHTML="RESTORE";
+            document.getElementById("butt").onclick= function() {mySecond()};
+        }
+        function mySecond(){
+            document.getElementById("text").innerHTML="NOPE! too late";
+            document.getElementById("butt").onclick= function() {myThird()};
+        }
+        function myThird(){
+            window.location.assign("http://saarinenemma.github.io/fun.html");
+         }
+        function myInputFunction(){
+            
+            var x = document.getElementById("myInput").value;
+            x=parseFloat(x)
+            if(x){
+            if(x>mystery){
+            document.getElementById("demo").innerHTML = "You wrote: " + (x) +" which is higher than The Secret Number";
+            }else if(x<mystery){
+                document.getElementById("demo").innerHTML = "You wrote: " + (x) +" which is lower than The Secret Number"; 
             }
-            function myThird(){
-                window.location.assign("http://saarinenemma.github.io/fun.html");
+            else{
+                document.getElementById("demo").innerHTML = "You guessed correctly! click me for a new mystery number!";
+                document.getElementById("demo").onclick= function() {randoInt()};
             }
-            function myInputFunction() {
-  var x = document.getElementById("myInput").value;
-  document.getElementById("demo").innerHTML = "You wrote: " + x;
-}
-</script>
+        }else{
+            document.getElementById("demo").innerHTML = "Enter a valid integer silly, smh"
+        }
+        function randoInt(){
+            mystery = Math.floor(Math.random() * 100) + 1;
+            myInputFunction();
+        }
+        }
+        function hint(){
+            document.getElementById("demo").innerHTML = "The Secret Number is " + mystery;
+        }
+        function startGuess(){
+            document.getElementById("start").hidden=true;
+            document.getElementById("higher").hidden=false;
+            document.getElementById("lower").hidden=false;
+            document.getElementById("end").hidden=false;
+            myGuesser(0);
+        }
+        function myGuesser(plusMin){
+            if(numGuess>9){oopsGuesser();}
+            else{
+            numGuess+=1;
+            currGuess=currGuess+(plusMin*Math.max(1,Math.ceil(1000/(Math.pow(2,numGuess)))));
+            document.getElementById("guess").innerHTML = "The number of guesses is " + numGuess + "<br> Is the number higher or lower than " +currGuess+"?";
+            }
+        }
+        function oopsGuesser(){
+            document.getElementById("guess").innerHTML="Oh no! looks like you stumped me. Are you sure you were thinking of one number between 1 and 1000?";
+            numGuess=0;
+            currGuess=500;
+            document.getElementById("start").hidden=false;
+            document.getElementById("higher").hidden=true;
+            document.getElementById("lower").hidden=true;
+            document.getElementById("end").hidden=true;
+        }
+        function endGuesser(){
+            numGuess=0;
+            currGuess=500;
+            document.getElementById("start").hidden=false;
+            document.getElementById("higher").hidden=true;
+            document.getElementById("lower").hidden=true;
+            document.getElementById("end").hidden=true;
+            document.getElementById("guess").innerHTML="The number of guesses is " + numGuess;
+        }
+         </script>
     </head>
 <body>
     <title>Emma Saarinen-Fun Facts</title>
-    <section style="background-image: linear-gradient(to right, gray , cyan); margin-right:-10px;margin-top:0px;padding-left:-10px;margin-left:-10px;border: solid gray">
+    <div style="background-image: linear-gradient(to right, gray , cyan); margin-right:-10px;margin-top:0px;padding-left:-10px;margin-left:-10px;border: solid gray">
         <div>
              <p style="float:right;padding-right:10px;"><a href="https://saarinenemma.github.io/index.html">ABOUT</a> | <a href="https://saarinenemma.github.io/research.html">RESEARCH</a> | <a href="https://saarinenemma.github.io/statement.html">STATEMENT OF PURPOSE</a> | FUN FACTS | <a href="https://saarinenemma.github.io/opisanie.html">ОПИСАНИЕ</a></p>
             <h1 style="padding-left:10px;">Emma Saarinen</h1>
             <h4 style="padding-left:10px;"> Student, Technical Solutions Engineer, Tutor </h4>
             
         </div>
-    </section>
-    <section style="margin-top:0px;padding-bottom:10%">
+    </div>
+    <div style="margin-top:0px;padding-bottom:10%">
         <div style="padding-left:200px;padding-top:100px;">
             <img src="id pic.jpg" alt="My Face" style="width:250px;height:325px;cursor:not-allowed;float:right;padding-right:200px;padding-left:30px; padding-bottom: 30px;" />
             <h1 style="color:gray;">RESEARCH</h2>
@@ -47,19 +102,27 @@ alert("Your name is " + name);
 <br>Duis condimentum lorem arcu, luctus finibus urna posuere id. Fusce et varius nulla, non convallis nibh. Vivamus cursus urna a lacus placerat finibus. Ut ut faucibus turpis. Vivamus consectetur sodales justo, ut convallis velit vestibulum at. Donec enim nulla, pretium vitae velit sed, feugiat scelerisque risus. Curabitur quis molestie sapien. Nunc lobortis, lorem sed aliquam tincidunt, augue diam egestas mauris, non viverra magna eros vel purus. Proin interdum non nibh eu pellentesque. Duis feugiat pharetra urna ac scelerisque. Ut cursus leo lectus, eget hendrerit nulla egestas et. Quisque viverra ipsum ut viverra hendrerit. Donec lobortis, dolor et ultrices faucibus, enim orci ullamcorper sem, sed tincidunt velit libero sit amet est.</p>
             
         </div>
-    </section>
+    </div>
     <hr style="color:gray;">
-    <section style="float:bottom;padding-top: 20px;text-align:center;">
+    <div style="float:bottom;padding-top: 20px;text-align:center;">
         <h5>Contact</h5>
         <p style="padding-top:-10;font-size:75%">linklinklinklink<br>link<br>linklink link
-    </section>
+        </div>
         <button id="butt" type="button" onclick="myFunction()">DELETE</button>
-    <p>Write something in the text field to trigger a function.</p>
+        <hr style="color:gray;">
+    <p>Guess an integer between 1 and 100 inclusive</p>
 
 <input type="text" id="myInput" oninput="myInputFunction()">
 
+
 <p id="demo"></p>
-
-
+<p onclick="hint()">Click for hint</p>
+<hr style="color:gray;">
+<p>Now I bet I can guess a number you think of in 10 guesses or less. Pick an integer between 1 and 1000</p>
+<p id="guess">The number of guesses is 0</p>
+<button id="start" type="button" onclick="startGuess()">START</button>
+<button hidden=true id="higher" type="button" onclick="myGuesser(1)">HIGHER</button>
+<button hidden=true id="lower" type="button" onclick="myGuesser(-1)">LOWER</button>
+<button hidden=true id="end" type="button" onclick="endGuesser()">RIGHT NUMBER</button>
 </body>
 </html>
