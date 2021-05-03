@@ -1,81 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script>
-        var mysteryNum = Math.floor(Math.random() * 100) + 1;
-        var numGuess=0;
-        var currGuess=500;
-        function firstClick() {
-            document.getElementById("text").innerHTML = "You deleted my text!<br>Click restore to bring info back";
-            document.getElementById("button1").innerHTML="RESTORE";
-            document.getElementById("button1").onclick= function() {secondClick()};
-        }
-        function secondClick(){
-            document.getElementById("text").innerHTML="NOPE! too late";
-            document.getElementById("button1").onclick= function() {thirdClick()};
-        }
-        function thirdClick(){
-            window.location.assign("http://saarinenemma.github.io/fun.html");
-         }
-        function guesserGame(){
-            
-            var input = document.getElementById("myInput").value;
-            input=parseFloat(input)
-            if(input){
-            if(input>mysteryNum){
-            document.getElementById("demo").innerHTML = "You wrote: " + (input) +" which is higher than The Secret Number";
-            }else if(input<mysteryNum){
-                document.getElementById("demo").innerHTML = "You wrote: " + (input) +" which is lower than The Secret Number"; 
-            }
-            else{
-                document.getElementById("demo").innerHTML = "You guessed correctly! click me for a new mysteryNum number!";
-                document.getElementById("demo").onclick= function() {randoInt()};
-            }
-        }else{
-            document.getElementById("demo").innerHTML = "Enter a valid integer silly, smh"
-        }
-        function randoInt(){
-            mysteryNum = Math.floor(Math.random() * 100) + 1;
-            guesserGame();
-        }
-        }
-        function hint(){
-            document.getElementById("demo").innerHTML = "The Secret Number is " + mysteryNum;
-        }
-        function startGuess(){
-            document.getElementById("start").hidden=true;
-            document.getElementById("higher").hidden=false;
-            document.getElementById("lower").hidden=false;
-            document.getElementById("end").hidden=false;
-            myGuesser(0);
-        }
-        function myGuesser(plusMin){
-            if(numGuess>9){oopsGuesser();}
-            else{
-            numGuess+=1;
-            currGuess=currGuess+(plusMin*Math.max(1,Math.ceil(1000/(Math.pow(2,numGuess)))));
-            document.getElementById("guess").innerHTML = "The number of guesses is " + numGuess + "<br> Is the number higher or lower than " +currGuess+"?";
-            }
-        }
-        function oopsGuesser(){
-            document.getElementById("guess").innerHTML="Oh no! looks like you stumped me. Are you sure you were thinking of one number between 1 and 1000?";
-            numGuess=0;
-            currGuess=500;
-            document.getElementById("start").hidden=false;
-            document.getElementById("higher").hidden=true;
-            document.getElementById("lower").hidden=true;
-            document.getElementById("end").hidden=true;
-        }
-        function endGuesser(){
-            numGuess=0;
-            currGuess=500;
-            document.getElementById("start").hidden=false;
-            document.getElementById("higher").hidden=true;
-            document.getElementById("lower").hidden=true;
-            document.getElementById("end").hidden=true;
-            document.getElementById("guess").innerHTML="The number of guesses is " + numGuess;
-        }
-         </script>
+        <script src="./games.js"></script>
     </head>
 <body>
     <title>Emma Saarinen-Fun Facts</title>
@@ -112,6 +38,7 @@
         <hr style="color:gray;">
     <p>Guess an integer between 1 and 100 inclusive</p>
 
+    <!--TODO: add button listeners so user actively enters answer-->
 <input type="text" id="myInput" oninput="guesserGame()">
 
 
