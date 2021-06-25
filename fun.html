@@ -2,6 +2,8 @@
 <html>
     <head>
         <script src="./games.js"></script>
+        <script src="./maze.js"></script>
+        
     </head>
 <body>
     <title>Emma Saarinen-Fun Facts</title>
@@ -45,11 +47,25 @@
 <p id="demo"></p>
 <p onclick="hint()">Click for hint</p>
 <hr style="color:gray;">
+
 <p>Now I bet I can guess a number you think of in 10 guesses or less. Pick an integer between 1 and 1000</p>
 <p id="guess">The number of guesses is 0</p>
 <button id="start" type="button" onclick="startGuess()">START</button>
 <button hidden=true id="higher" type="button" onclick="myGuesser(1)">HIGHER</button>
 <button hidden=true id="lower" type="button" onclick="myGuesser(-1)">LOWER</button>
 <button hidden=true id="end" type="button" onclick="endGuesser()">RIGHT NUMBER</button>
+<hr style="color:gray;">
+
+<p id="currentRoom"></p>
+<button id="startMaze" type="button" onclick="firstRoom()">Start Maze</button>
+<div id="display"><p></p></div>
+<div id="choices"></div>
+<script src="scripts.js"></script>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  
+    <script src="https://unpkg.com/babel-standalone"></script>
+    <script src="react.js" type="text/jsx"></script>
 </body>
 </html>
