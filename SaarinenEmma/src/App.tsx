@@ -43,10 +43,10 @@ const App: React.FC = () => (
           <Route exact path="/dashboard">
             <Tab1 />
           </Route>
-          <Route exact path="/clients">
+          <Route exact path="/Tab2">
             <Tab2 />
           </Route>
-          <Route exact path="/clientOverview">
+          <Route exact path="/Tab3">
             <Tab3 />
           </Route>
           <Route exact path="/">
