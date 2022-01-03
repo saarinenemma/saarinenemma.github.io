@@ -1,4 +1,4 @@
-import { IonItem, IonCard, IonListHeader, IonRadio, IonRadioGroup, IonLabel, IonSelect, IonSelectOption, useIonPopover, IonSearchbar, IonCol, IonButton, IonText, IonGrid, IonRow, IonList, IonCheckbox, IonChip, IonIcon } from '@ionic/react';
+import { IonItem, IonCard, IonListHeader, IonRadio, IonRadioGroup, IonLabel, useIonAlert, IonSelect, IonSelectOption, useIonPopover, IonSearchbar, IonCol, IonButton, IonText, IonGrid, IonRow, IonList, IonCheckbox, IonChip, IonIcon } from '@ionic/react';
 import React, { useState, useEffect } from 'react';
 import './Tab2.css';
 import { closeCircle, caretDown, } from 'ionicons/icons'
@@ -7,12 +7,13 @@ import { closeCircle, caretDown, } from 'ionicons/icons'
 
 class Client {
   id: string;
-  name: string;
-  nameLast: String;
+  
+  projectName: string;
   alphaLevel: string;
-  lastAnalysisDate: Date;
-  recommendedAnalysis: String;
+  startDate: Date;
+  endDate: Date;
   tags: String;
+  description: string;
   /*getName : function(Id: string){
     var clientname=clientsListConstructed.find(Client=> {
       return Client.id === Id
@@ -20,14 +21,14 @@ class Client {
     return clientname;
   }*/
 
-  constructor(Id: string, Name: string, NameLast: string, AlphaLevel: string, LastAnalysisDate: Date, RecommendedAnalysis: string, Tags: string) {
+  constructor(Id: string,  ProjectName: string, AlphaLevel: string, StartDate: Date, EndDate: Date, Tags: string, Description: string) {
     this.id = Id;
-    this.name = Name;
-    this.nameLast = NameLast;
+    this.projectName = ProjectName;
     this.alphaLevel = AlphaLevel;
-    this.lastAnalysisDate = LastAnalysisDate;
-    this.recommendedAnalysis = RecommendedAnalysis;
+    this.startDate = StartDate;
+    this.endDate = EndDate;
     this.tags = Tags;
+    this.description=Description;
   }
   includesTags(filterCriteria: string) {
     var filterCriteriaArray = filterCriteria.split(",");
@@ -39,6 +40,7 @@ class Client {
     return true
   }
   
+  
 
 }
 
@@ -46,112 +48,122 @@ class Client {
 export const clientsListConstructed = [
   new Client(
     "1",
-    "Jose Andreas",
-    "Andreas",
-    "Advanced",
-    "2019-05-27" as unknown as Date,
-    "Analysis Product Link",
-    "client,advanced,new")
+    "Honors Thesis",
+    "Multimedia Research, Russian, Graph",
+    "2018-08-01" as unknown as Date,
+    "2020-08-14" as unknown as Date,
+    "work,Math,Programming,Russian",
+    "Honors Thesis ASU, 2018-2020 </br> ''Translation, Analysis, and Application of a Russian-Language Graph Theory Paper'' </br> Emma Saarinen, Iuliia Inozemtseva, Sergei Suslov </br> Adjacency Matrices, Expander Graphs </br> Presented to a faculty committee August 2020")
   ,
   new Client(
     "2",
-    "Amelia Bedelia",
-    "Bedelia",
-    "Foundational",
-    "1998-07-07" as unknown as Date,
-    "Analysis Product Link",
-    "prospective,foundational"
+    "Senior Thesis (WKU)",
+    "Research Poster, Primitive Pythagorean Triples",
+    "2015-08-01" as unknown as Date,
+    "2016-05-01" as unknown as Date,
+    "work,Math,Programming",
+    "Senior Thesis at Western KY Uni. with Dr. Thomas Richmond, demonstarating density of Primitive Pythagoran Triplets in the first quadrant and formulas for finding arbitrarily large PPTs"
   ),
   new Client(
     "3",
-    "Jose Cuervo",
-    "Cuervo",
-    "Foundational",
-    "1995-03-17" as unknown as Date,
-    "Analysis Product Link",
-    "client,foundational"
+    "Graph Partition Problem",
+    "Research Paper, Directed Acyclic Graph",
+    "2021-05-01" as unknown as Date,
+    "" as unknown as Date,
+    "work,Math,Programming,Ongoing",
+    "demonstrating near optimality of a novel query algorithm on Directed Acyclic Graphs. </br> Under the supervision of Dr. Michael Littman and Dr. Samuel Saarinen"
   ),
   new Client(
     "4",
-    "Frank Holmes",
-    "Holmes",
-    "Comprehensive",
-    "2021-05-02" as unknown as Date,
-    "Analysis Product Link",
-    "client,comprehensive"
+    "Rose Purse",
+
+    "Needlepoint",
+    "2021-12-25" as unknown as Date,
+    "2021-12-30" as unknown as Date,
+    "fun, Ongoing,Visual Art",
+    "Embroidery project of roughly 12''*12'', ~100 hours of work in total"
   ),
   new Client(
     "5",
-    "Benjamin Franklin",
-    "Franklin",
-    "Advanced",
-    "2021-02-12" as unknown as Date,
-    "Analysis Product Link",
-    "prospective,advanced"
+    "My Junior Advisor",
+
+    "Web App, Finance, Programming",
+    "2021-03-01" as unknown as Date,
+    "" as unknown as Date,
+    "work,Programming,Ongoing",
+    "Web app to support financial advisors. I led web development on this project </br> this interface is based off of the MJA website"
   ),
   new Client(
     "6",
-    "Frank Franklin",
-    "Franklin",
-    "Comprehensive",
-    "2020-10-27" as unknown as Date,
-    "Analysis Product Link",
-    "client,comprehensive,new"
+    "Celtic Knot Blanket",
+
+    "Knitting",
+    "2017-08-01" as unknown as Date,
+    "" as unknown as Date,
+    "fun,Ongoing,Visual Art",
+    "4 years and counting devoted to this blanket</br>over 1000 hours spent on design/planning/executing this custom blanket"
   ),
   new Client(
     "7",
-    "Bethany LeBlanc",
-    "LeBlanc",
-    "Foundational",
-    "2021-01-31" as unknown as Date,
-    "Analysis Product Link",
-    "prospective,foundational"
+    "Art",
+
+    "drawing, painting, sketching",
+    "" as unknown as Date,
+    "" as unknown as Date,
+    "fun,Ongoing,Visual Art",
+    "Are you getting a christmas present from me? Its probably a painting."
   ),
   new Client(
     "8",
-    "John Addams",
-    "Addams",
-    "Comprehensive",
-    "1402-08-03" as unknown as Date,
-    "Analysis Product Link",
-    "prospective,comprehensive"
+    "Human Event Teacher's Assistant",
+
+    "Teaching, Writing",
+    "2017-08-01" as unknown as Date,
+    "2020-05-01" as unknown as Date,
+    "work",
+    "3 years and hundreds of students experience in tutoring, teaching, and writing"
   ),
   new Client(
     "9",
-    "Emma Saarinen",
-    "Saarinen",
-    "Comprehensive",
-    "2001-07-07" as unknown as Date,
-    "Analysis Product Link",
-    "prospective,comprehensive"
+    "Solutions Engineer at Epic Systems",
+
+    "computational pronlem solving, programming",
+    "2020-08-07" as unknown as Date,
+    "2021-03-15" as unknown as Date,
+    "work,Programming",
+    "Experience in team work, problem solving, and programming"
   ),
   new Client(
     "10",
-    "Jane Doe",
-    "Doe",
-    "Advanced",
-    "1856-07-21" as unknown as Date,
-    "Analysis Product Link",
-    "client,advanced"
+    "Supply Chain Intern Omnova Solutions",
+   
+    "VBA, programming, data processing",
+    "2017-06-01" as unknown as Date,
+    "2017-08-01" as unknown as Date,
+    "work,Math,Programming",
+    "Developed a unique data procesing program still in use to evaluate plant efficiency"
   ),
   new Client(
     "11",
-    "John Smith",
-    "Smith",
-    "Advanced",
-    "2021-10-23" as unknown as Date,
-    "Analysis Product Link",
-    "prospective,advanced"
+    "Nyebo and Zemlya",
+
+    "Cats, Parenting, Beast Taming",
+    "2021-03-16" as unknown as Date,
+    "" as unknown as Date,
+    "fun,Ongoing",
+    "My two cats are my ''heaven'' and ''earth'' ... and also the source of 50% of my stress NOOO DROP THAT DONT EAT THAT"
   ),
   new Client(
     "12",
-    "(S)am Saarinen",
-    "Saarinen",
-    "Comprehensive",
-    "2019-12-25" as unknown as Date,
-    "Analysis Product Link",
-    "client,comprehensive"
+    "Study Abroad and Language Studies",
+
+    "language and travel, Essays, Presentations, Research",
+    "2014-08-01" as unknown as Date,
+    "" as unknown as Date,
+    "fun,Russian,Ongoing",
+    "Almost a decade of Russian study, combining both personal interest and technical utility"
   ),
+  
 ];
 
 function alphaSort(a: String, b: String) {
@@ -174,13 +186,22 @@ function dateSort(a: Date, b: Date) {
 }
 const ClientPage: React.FC = () => {
   const originalCheckboxList=[
-    { val: 'foundational', isChecked: false },
-    { val: 'advanced', isChecked: false },
+    { val: 'Math', isChecked: false },
+    { val: 'Programming', isChecked: false },
     
-    { val: 'comprehensive', isChecked: false },
-    { val: 'new', isChecked: false}
+    { val: 'Russian', isChecked: false },
+    { val: 'Ongoing', isChecked: false},
+    {val: 'Visual Art', isChecked: false}
   ];
-const [currentClient,setCurrentClient]=useState("N/A");
+const [currentClient,setCurrentClient]=useState(new Client(
+  "",
+  "",
+  "",
+  "" as unknown as Date,
+  ""as unknown as Date,
+  "",
+  ""
+));
   const [checkboxList,setcheckboxList] =useState( originalCheckboxList);
   const sortByPopoverList: React.FC<{
     onSortHide: () => void;
@@ -193,13 +214,17 @@ const [currentClient,setCurrentClient]=useState("N/A");
         </IonListHeader>
 
         <IonItem>
-          <IonLabel>Last Name</IonLabel>
+          <IonLabel>Project Name</IonLabel>
           <IonRadio slot="start" value="alpha" />
         </IonItem>
 
         <IonItem>
-          <IonLabel>Last Analysis Date</IonLabel>
-          <IonRadio slot="start" value="numer" />
+          <IonLabel>Start Date</IonLabel>
+          <IonRadio slot="start" value="start" />
+        </IonItem>
+        <IonItem>
+          <IonLabel>End Date</IonLabel>
+          <IonRadio slot="start" value="end"></IonRadio>
         </IonItem>
 
       </IonRadioGroup>
@@ -220,17 +245,18 @@ const [currentClient,setCurrentClient]=useState("N/A");
     </IonList>
 
   );
-
+ const [present] = useIonAlert();
   const clientActionPopoverList: React.FC<{
-    onHide: () => void
-  }> = ({ onHide }) => (
+    onHide: () => void 
+  }> = (
+    { onHide }) => (
+  
     <IonList>
-      <IonListHeader>Client Options:{currentClient}</IonListHeader>
-      <IonItem button onClick={() => { window.location.assign('/Tab3'); }} >Client Overview</IonItem>
-      <IonItem button disabled={true}>Recent Reports</IonItem>
-      <IonItem button disabled={true}>Save Reports</IonItem>
-      <IonItem button onClick={()=>{}}>Add to Group</IonItem>
-      <IonItem button role='destructive' disabled={true}>Delete</IonItem>
+      <IonListHeader>Project Options:{currentClient.projectName}</IonListHeader>
+      <IonItem button onClick={() => { window.location.assign('/Tab3'); }} >Project Detail Page</IonItem>
+      <IonItem button 
+          onClick={() => present(currentClient.description, [{ text: 'Ok' }])}>Project Overview</IonItem>
+     
       <IonItem lines="none" detail={false} button onClick={onHide}>
         Close Menu
       </IonItem>
@@ -248,8 +274,8 @@ const [currentClient,setCurrentClient]=useState("N/A");
       "",
       "",
       "",
-      "",
       "" as unknown as Date,
+      ""as unknown as Date,
       "",
       ""
     )])
@@ -291,11 +317,11 @@ const [currentClient,setCurrentClient]=useState("N/A");
   }
 
   useEffect(() => {
-    let tempSearchResult = clientsListConstructed.filter(ele => ele.name.toUpperCase().includes(searchText)).filter(ele => ele.includesTags(filterCriteria)).sort(function (a, b) {
+    let tempSearchResult = clientsListConstructed.filter(ele => ele.projectName.toUpperCase().includes(searchText)).filter(ele => ele.includesTags(filterCriteria)).sort(function (a, b) {
 
-      if (sortType === "alpha") return alphaSort(a.nameLast.toLowerCase(), b.nameLast.toLowerCase());
-      else
-        return dateSort(a.lastAnalysisDate, b.lastAnalysisDate);
+      if (sortType === "alpha") return alphaSort(a.projectName.toLowerCase(), b.projectName.toLowerCase());
+      else if (sortType=="start")return dateSort(a.startDate, b.startDate);
+      else return dateSort(a.endDate,b.endDate);
     })
     setFilteredSearch([...tempSearchResult])
   }, [searchText, sortType, filterCriteria])
@@ -312,8 +338,8 @@ const [currentClient,setCurrentClient]=useState("N/A");
           } >Sort By <IonIcon icon={caretDown}></IonIcon></IonButton>
           
           <IonButton onClick={() => { setSortType("alpha"); setFilterCriteria("");setcheckboxList(originalCheckboxList)}}>All</IonButton>
-          <IonButton onClick={() => { updateFilterCriteria("client"); }}>Clients</IonButton>
-          <IonButton onClick={() => updateFilterCriteria("prospective")}>Prospects</IonButton>
+          <IonButton onClick={() => { updateFilterCriteria("work"); }}>Professional</IonButton>
+          <IonButton onClick={() => updateFilterCriteria("fun")}>Extracurricular</IonButton>
           <IonButton onClick={(e) =>
             presentGroupPopover({
               event: e.nativeEvent,
@@ -329,10 +355,10 @@ const [currentClient,setCurrentClient]=useState("N/A");
           <IonGrid>
             <IonCol>
               <IonRow>
-                <IonCol class="columnHead">Name</IonCol>
-                <IonCol class="columnHead">Advisor Driven Alpha Level</IonCol>
-                <IonCol class="columnHead">Last Analysis Ran</IonCol>
-                <IonCol class="columnHead">Recommended Analysis</IonCol>
+                <IonCol class="columnHead">Project Name</IonCol>
+                <IonCol class="columnHead">Subject/Medium</IonCol>
+                <IonCol class="columnHead">Start Date</IonCol>
+                <IonCol class="columnHead">End Date</IonCol>
               </IonRow>
               {filteredSearch.map((clientToCheck) => (
                 <IonRow
@@ -344,12 +370,12 @@ const [currentClient,setCurrentClient]=useState("N/A");
                       presentPopover({
                         event: e.nativeEvent,
                       });
-                    setCurrentClient(clientToCheck.name)}
+                    setCurrentClient(clientToCheck)}
                     }
-                  >{clientToCheck.name}</IonText></IonCol>
+                  >{clientToCheck.projectName}</IonText></IonCol>
                   <IonCol>{clientToCheck.alphaLevel}</IonCol>
-                  <IonCol>{clientToCheck.lastAnalysisDate}</IonCol>
-                  <IonCol>{clientToCheck.recommendedAnalysis}</IonCol>
+                  <IonCol>{clientToCheck.startDate}</IonCol>
+                  <IonCol>{clientToCheck.endDate}</IonCol>
                 </IonRow>
               ))}
               <IonRow> <IonText color="primary">Showing {filteredSearch.length} of {clientsListConstructed.length}</IonText></IonRow>

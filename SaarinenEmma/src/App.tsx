@@ -40,7 +40,7 @@ const App: React.FC = () => (
   <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/dashboard">
+          <Route exact path="/Tab1">
             <Tab1 />
           </Route>
           <Route exact path="/Tab2">
@@ -50,7 +50,7 @@ const App: React.FC = () => (
             <Tab3 />
           </Route>
           <Route exact path="/">
-            <Redirect to="/dashboard" />
+            <Redirect to="/Tab1" />
           </Route>
           <Route>{/* Default catch-all route at end. */}
           <Tab3 />
