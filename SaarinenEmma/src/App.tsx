@@ -11,8 +11,8 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
+import About from './pages/About';
+import ProjectsPage from './pages/ProjectsPage';
 import Tab3 from './pages/Tab3';
 
 /* Core CSS required for Ionic components to work properly */
@@ -33,6 +33,10 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Contact from './pages/Contact';
+import Russian from './pages/Russian';
+import Fun from './pages/Fun';
+import Detail from './pages/Detail';
 
 setupIonicReact();
 
@@ -40,20 +44,30 @@ const App: React.FC = () => (
   <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
-          <Route exact path="/Tab1">
-            <Tab1 />
+          <Route exact path="/About">
+            <About />
           </Route>
-          <Route exact path="/Tab2">
-            <Tab2 />
+          <Route exact path="/Projects">
+            <ProjectsPage />
+          </Route>
+          <Route path="/Projects/details/:id" component={Detail} />
+          <Route exact path="/Contact">
+            <Contact />
+          </Route>
+          <Route exact path="/Fun">
+           <Fun/>
+          </Route>
+          <Route exact path="/ОПИСАНИЕ">
+           <Russian/>
           </Route>
           <Route exact path="/Tab3">
             <Tab3 />
           </Route>
           <Route exact path="/">
-            <Redirect to="/Tab1" />
+            <Redirect to="/About" />
           </Route>
           <Route>{/* Default catch-all route at end. */}
-          <Tab3 />
+          <ProjectsPage />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
