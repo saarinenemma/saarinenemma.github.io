@@ -11,10 +11,10 @@ const Russian: React.FC = () => {
     else{return <IonRow><IonText onClick={()=>setExpanded(true)} class="links">More Info...</IonText></IonRow>}
   }
   const [links, setLinks] = useState(["ABOUT", "PROJECTS", "CONTACT", "FUN", "ОПИСАНИЕ", "ОПИСАНИЕ"])
-  function changeBackground(e) {
+  /*function changeBackground(e) {
     e.target.style.fontWeight = 'bolder';
   }
-  function fixBackground(e) { e.target.style.fontWeight = 'lighter' }
+  function fixBackground(e) { e.target.style.fontWeight = 'lighter' }*/
   function updateLinks(Links: string[]) {
 
     var templinks = [];
@@ -22,7 +22,7 @@ const Russian: React.FC = () => {
       const currentLink = Links[i];
       if (currentLink == Links[Links.length - 1]) { templinks.push(<IonText class="curlinks" onClick={() => { window.location.assign('/' + currentLink); }}>{Links[i]}</IonText>); }
       else {
-        templinks.push(<IonText class="links" onClick={() => { window.location.assign('/' + currentLink); }} onMouseEnter={changeBackground} onMouseLeave={fixBackground}>{Links[i]}</IonText>);
+        templinks.push(<IonText class="links" onClick={() => { window.location.assign('/' + currentLink); }} /*onMouseEnter={changeBackground} onMouseLeave={fixBackground}*/>{Links[i]}</IonText>);
       }
       templinks.push(<IonText>{" | "}</IonText>);
     }

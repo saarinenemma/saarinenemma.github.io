@@ -326,11 +326,12 @@ const [currentClient,setCurrentClient]=useState(new Client(
     setFilteredSearch([...tempSearchResult])
   }, [searchText, sortType, filterCriteria])
   const [links,setLinks]=useState(["ABOUT","PROJECTS","CONTACT","FUN","ОПИСАНИЕ","PROJECTS"])
-  function changeBackground(e) {
+ /* function changeBackground(e) {
     e.target.style.fontWeight='bolder';
   }
-  
-  function fixBackground(e){e.target.style.fontWeight='lighter'}
+
+  function fixBackground(e){e.target.style.fontWeight='lighter'}*/
+
   function updateLinks(Links:string[]){
   
     var templinks= [];
