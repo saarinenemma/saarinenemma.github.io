@@ -329,7 +329,9 @@ const [currentClient,setCurrentClient]=useState(new Client(
  /* function changeBackground(e) {
     e.target.style.fontWeight='bolder';
   }
+
   function fixBackground(e){e.target.style.fontWeight='lighter'}*/
+
   function updateLinks(Links:string[]){
   
     var templinks= [];
@@ -355,7 +357,7 @@ const [currentClient,setCurrentClient]=useState(new Client(
           <IonTitle class="Title2">Emma Saarinen</IonTitle>
           <IonText>Researcher, Tutor, Developer</IonText>
           </IonCol>
-          <IonCol  >{updateLinks(links)}</IonCol>
+          <IonCol  >updateLinks(links)</IonCol>
           </IonRow>
           </IonGrid>
         </IonToolbar>
