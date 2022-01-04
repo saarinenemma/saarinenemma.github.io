@@ -357,7 +357,7 @@ const [currentClient,setCurrentClient]=useState(new Client(
           <IonTitle class="Title2">Emma Saarinen</IonTitle>
           <IonText>Researcher, Tutor, Developer</IonText>
           </IonCol>
-          <IonCol  >updateLinks(links)</IonCol>
+          <IonCol  >{updateLinks(links)}</IonCol>
           </IonRow>
           </IonGrid>
         </IonToolbar>
