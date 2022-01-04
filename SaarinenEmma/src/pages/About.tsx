@@ -18,7 +18,7 @@ const About: React.FC = () => {
     var templinks = [];
     for (var i = 0; i < Links.length - 1; i++) {
       const currentLink = Links[i];
-      if (currentLink == Links[Links.length - 1]) { templinks.push(<IonText class="curlinks" onClick={() => { window.location.assign('/' + currentLink); }}>{Links[i]}</IonText>); }
+      if (currentLink == Links[Links.length - 1]) { templinks.push(<IonText class="curlinks" onClick={() => { window.location.assign('/SaarinenEmma/' + currentLink); }}>{Links[i]}</IonText>); }
       else {
         templinks.push(<IonText class="links" onClick={() => { window.location.assign('/' + currentLink); }} /*onMouseEnter={changeBackground} onMouseLeave={fixBackground}*/>{Links[i]}</IonText>);
       }
