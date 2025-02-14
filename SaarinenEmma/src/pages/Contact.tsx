@@ -41,7 +41,7 @@ const [links,setLinks]=useState(["ABOUT","PROJECTS","CONTACT","FUN","ОПИСА�
           <IonGrid>
               <IonRow>
         <IonText>Email: emma.saarinen695@gmail.com</IonText></IonRow>
-              <IonText>Email: ecsaarin@ncsu.edu</IonText></IonRow>
+             <IonRow> <IonText>Email: ecsaarin@ncsu.edu</IonText></IonRow>
         <IonRow><IonText >LinkedIn: https://www.linkedin.com/in/emma-saarinen-695843195/</IonText></IonRow>
         </IonGrid>
       </IonContent>
