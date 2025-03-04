@@ -5,7 +5,7 @@ import './About.css';
 const About: React.FC = () => {
   const [isExpanded, setExpanded] = useState(false)
   function expandInfo(isExpanded:Boolean){
-    if (isExpanded){return <IonCol><IonRow><IonText class="body">I am a student, researcher, and webdeveloper with a history in discrete math, computer algorithms, Tutoring, and over-engineering. I recieved a BS in Mathematics from Arizona State University and previously studied at Western Kentucky University through the Gatton Academy. I will add more info eventually, but unfortunately this website is mid-development. See my resume or personal statement for more details.</IonText></IonRow><IonRow><IonText onClick={()=>setExpanded(false)} class="links">Less Info...</IonText></IonRow></IonCol>}
+    if (isExpanded){return <IonCol><IonRow><IonText class="body">Emma did her undergraduate work at Arizona State University, where she studied Mathematics and Russian. Her honors thesis on Expander Graph algorithms ignited an interest in graph theory. Following two years as a professional developer, Emma returned to academia to pursue a PhD in computer science.</IonText></IonRow><IonRow><IonText onClick={()=>setExpanded(false)} class="links">Less Info...</IonText></IonRow></IonCol>}
     else{return <IonRow><IonText onClick={()=>setExpanded(true)} class="links">More Info...</IonText></IonRow>}
   }
   const [links, setLinks] = useState(["ABOUT", "PROJECTS", "CONTACT", "FUN", "ОПИСАНИЕ", "ABOUT"])
@@ -31,13 +31,13 @@ const About: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader color="red">
         <IonToolbar>
           <IonGrid>
             <IonRow>
               <IonCol>
                 <IonTitle class="Title2">Emma Saarinen</IonTitle>
-                <IonText>Researcher, Tutor, Developer</IonText>
+                <IonText>PhD Student, Developer</IonText>
               </IonCol>
               <IonCol  >{updateLinks(links)}</IonCol>
             </IonRow>
@@ -54,7 +54,7 @@ const About: React.FC = () => {
         <IonRow>
           <IonCol>
             <IonRow class="Title"><IonText>About Emma</IonText></IonRow>
-            <IonRow><IonText class="body">This is a bio about me. I definitely will fill out this bio and give in depth info about my history, goals and personality. I definitely won't put off writing a auto-biography and leave a generic paragraph. That doesn't sound like me at all. I definitely havent already left this page as Lorem Ipsum for several months before.</IonText></IonRow>
+            <IonRow><IonText class="body">Emma Saarinen is a curent PhD student in the theory lab in the Computer Science department at North Carolina State University. Emma works with her advisor Dr. Sharath Raghvendra. Current areas of research are geometry and graph algorithms, with applications in ML. The topic of Emma's thesis research is Optimal Transport, with a focus on OT approximations which are robust to noise. Her research is made possible by her two live-in, feline reasearch assistants; their contributions are compensated with scruffs and pets instead of author credit.</IonText></IonRow>
             {expandInfo(isExpanded)}
           </IonCol>
           <IonImg class="picture" src="/assets/id pic.jpg"></IonImg></IonRow>

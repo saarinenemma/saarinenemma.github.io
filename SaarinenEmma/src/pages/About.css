@@ -5,6 +5,12 @@ ion-toolbar{
     font-size: x-large;
     
 }
+ion-header{
+    color: blueviolet;
+    background-image: linear-gradient(to right, gray , cyan);
+    background-color: cyan;
+    font-size: x-large;
+}
 .Title{
     font-size:2em;
     margin-left:7em;
@@ -23,7 +29,7 @@ ion-toolbar{
     margin-right: 15em;
 }
 ion-row {
-    border-bottom: 1px solid lightblue;
+    /*border-bottom: 1px solid lightblue;*/
     text-align: left;
   }
 .columnHead{color:blue;
@@ -33,7 +39,7 @@ ion-row {
   .links{
       border-right: 0em;
       text-decoration: underline;
-      color:blueviolet;
+      color:blue;
   }
   .curlinks{
     border-right: 0em;

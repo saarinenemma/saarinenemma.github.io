@@ -30,7 +30,7 @@ const [links,setLinks]=useState(["ABOUT","PROJECTS","CONTACT","FUN","ОПИСА�
             <IonRow>
               <IonCol>
           <IonTitle class="Title2">Emma Saarinen</IonTitle>
-          <IonText>Researcher, Tutor, Developer</IonText>
+          <IonText>PhD Student, Developer</IonText>
           </IonCol>
           <IonCol  >{updateLinks(links)}</IonCol>
           </IonRow>
