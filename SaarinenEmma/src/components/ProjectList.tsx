@@ -156,6 +156,15 @@ export  const clientsListConstructed = [
     "fun,Russian,Ongoing",
     "Almost a decade of Russian study, combining both personal interest and technical utility. Can neither confirm nor deny any particiption in espionage."
   ),
-  
+  new Client(
+    13,
+    "Test",
+
+    "test2",
+    "2024-08-01" as unknown as Date,
+    "2024-08-10" as unknown as Date,
+    "fun,test",
+    "test3"
+  ),
 ];
 export default clientsListConstructed

@@ -34,12 +34,11 @@ const Russian: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar class="new-background-color">
           <IonGrid>
             <IonRow>
               <IonCol>
                 <IonTitle class="Title2">Emma Saarinen</IonTitle>
-                <IonText>PhD Student, Developer</IonText>
               </IonCol>
               <IonCol  >{updateLinks(links)}</IonCol>
             </IonRow>

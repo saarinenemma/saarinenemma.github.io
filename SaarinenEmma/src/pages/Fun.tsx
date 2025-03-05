@@ -6,7 +6,7 @@ const Fun: React.FC = () => {
   const [isExpanded, setExpanded] = useState(false)
   function expandInfo(isExpanded:Boolean){
     if (isExpanded){return <IonCol><IonRow><IonText class="body">What? you expected there to be fun things to do? On this very professional website? Well worry not; Fun things are under construction and coming soon!</IonText></IonRow><IonRow><IonText onClick={()=>setExpanded(false)} class="links">Less Info...</IonText></IonRow></IonCol>}
-    else{return <IonRow><IonText onClick={()=>setExpanded(true)} class="links">More Info...</IonText></IonRow>}
+    else{return <IonRow><IonText onClick={()=>setExpanded(true)} class="bodylinks">More Info...</IonText></IonRow>}
   }
   const [links, setLinks] = useState(["ABOUT", "PROJECTS", "CONTACT", "FUN", "ОПИСАНИЕ", "FUN"])
   /*function changeBackground(e) {
@@ -32,12 +32,11 @@ const Fun: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar class="new-background-color">
           <IonGrid>
             <IonRow>
               <IonCol>
                 <IonTitle class="Title2">Emma Saarinen</IonTitle>
-                <IonText>PhD Student, Developer</IonText>
               </IonCol>
               <IonCol  >{updateLinks(links)}</IonCol>
             </IonRow>
@@ -59,7 +58,6 @@ const Fun: React.FC = () => {
           </IonCol>
           <IonImg class="picture" src="/assets/construction.jfif"></IonImg></IonRow>
 
-        <IonRow><IonButton onClick={() => { window.location.assign('/PROJECTS'); }}>My Projects</IonButton></IonRow>
       </IonContent>
     </IonPage>
   );

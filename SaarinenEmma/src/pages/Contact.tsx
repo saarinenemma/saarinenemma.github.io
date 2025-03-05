@@ -25,20 +25,20 @@ const [links,setLinks]=useState(["ABOUT","PROJECTS","CONTACT","FUN","ОПИСА�
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar class="new-background-color">
           <IonGrid>
             <IonRow>
               <IonCol>
           <IonTitle class="Title2">Emma Saarinen</IonTitle>
-          <IonText>PhD Student, Developer</IonText>
           </IonCol>
           <IonCol  >{updateLinks(links)}</IonCol>
           </IonRow>
           </IonGrid>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-          <IonGrid>
+      <IonContent class="centered" >
+          <IonGrid >
+            
               <IonRow>
         <IonText>Email: emma.saarinen695@gmail.com</IonText></IonRow>
              <IonRow> <IonText>Email: ecsaarin@ncsu.edu</IonText></IonRow>

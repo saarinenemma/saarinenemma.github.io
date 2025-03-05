@@ -163,6 +163,16 @@ export  const clientsListConstructed = [
     "fun,Russian,Ongoing",
     "Almost a decade of Russian study, combining both personal interest and technical utility. Can neither confirm nor deny any particiption in espionage."
   ),
+  new Client(
+    13,
+    "Robust Partial p-Wasserstein (RPW) distances",
+
+    "New distance metric for distributions which is robust to noise",
+    "2023-08-01" as unknown as Date,
+    "" as unknown as Date,
+    "work,Ongoing,Math,Graph",
+    "Test text"
+  ),
   
 ];
 
@@ -350,19 +360,17 @@ const [currentClient,setCurrentClient]=useState(new Client(
     <IonContent>
       <IonGrid>
         <IonHeader>
-        <IonToolbar>
+        <IonToolbar class="new-background-color">
           <IonGrid>
             <IonRow>
               <IonCol>
           <IonTitle class="Title2">Emma Saarinen</IonTitle>
-          <IonText>PhD Student, Developer</IonText>
           </IonCol>
           <IonCol  >{updateLinks(links)}</IonCol>
           </IonRow>
           </IonGrid>
         </IonToolbar>
       </IonHeader>
-      <IonRow><IonText >Select the name of a project to get more information!</IonText></IonRow>
         <IonRow>
           <IonButton onClick={(e) =>
             presentSortPopover({
@@ -379,7 +387,7 @@ const [currentClient,setCurrentClient]=useState(new Client(
             })
           } >Groups <IonIcon icon={caretDown}></IonIcon></IonButton>
 
-          <IonSearchbar value={searchText} style={{ width: "30%" }} autocomplete="name" animated={true} showClearButton="focus" color="primary" placeholder="Search by Name.." onIonChange={e => setSearchText(e.detail.value?.toUpperCase()!)} showCancelButton="focus"></IonSearchbar>
+          <IonSearchbar  value={searchText} style={{ width: "30%" }} autocomplete="name" class="searchbar" animated={true} showClearButton="focus" placeholder="Search by Name.." onIonChange={e => setSearchText(e.detail.value?.toUpperCase()!)} showCancelButton="focus"></IonSearchbar>
         </IonRow>
         <IonRow>{updateFilterChips(filterCriteria)}</IonRow>
 
@@ -398,7 +406,7 @@ const [currentClient,setCurrentClient]=useState(new Client(
 
                   key={clientToCheck.id}
                 >
-                  <IonCol><IonText class="links"
+                  <IonCol><IonText 
                     onClick={(e) =>{
                       presentPopover({
                         event: e.nativeEvent,
@@ -418,11 +426,8 @@ const [currentClient,setCurrentClient]=useState(new Client(
         <IonCard>
           <IonGrid>
         <IonRow><IonImg class="picture" src="/assets/blanket.jpg"></IonImg><IonImg class="picture" src="/assets/catsfunny.jpg"></IonImg><IonImg class="picture" src="/assets/dancers.jpg"></IonImg></IonRow>
-        <IonRow><IonImg class="picture" src="/assets/replacement.png"></IonImg><IonImg class="picture" src="/assets/zigzag.png"></IonImg></IonRow>
         <IonRow><IonImg class="picture" src="/assets/catto.jpg"></IonImg><IonImg class="picture" src="/assets/fish.jpg"></IonImg><IonImg class="picture" src="/assets/oragami.jpg"></IonImg></IonRow>
-        <IonRow><IonImg class="picture" src="/assets/exslow.png"></IonImg><IonImg class="picture" src="/assets/exfast.png"></IonImg><IonImg class="picture" src="/assets/expaths.png"></IonImg></IonRow>
         <IonRow><IonImg class="picture" src="/assets/painting.jpg"></IonImg><IonImg class="picture" src="/assets/purse.jpg"></IonImg><IonImg class="picture" src="/assets/laughing.jpg"></IonImg></IonRow>
-        <IonRow><IonImg class="picture" src="/assets/1000vfast.png"></IonImg><IonImg class="picture" src="/assets/example1.png"></IonImg></IonRow>
      </IonGrid> </IonCard><IonText>Last updated december 2021</IonText></IonGrid>
     </IonContent>
   );

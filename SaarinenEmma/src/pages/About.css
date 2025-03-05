@@ -1,11 +1,23 @@
 ion-toolbar{
-    color: blueviolet;
+    color: rgb(200, 190, 252);
     background-image: linear-gradient(to right, gray , cyan);
     background-color: cyan;
     font-size: x-large;
     
 }
 ion-header{
+    color: rgb(226, 168, 43);
+    background-image: linear-gradient(to right, gray , cyan);
+    background-color: cyan;
+    font-size: x-large;
+}
+ion-text{
+   cursor: default;
+}
+ion-button{
+    --background:rgb(118, 121, 160);
+}
+.header{
     color: blueviolet;
     background-image: linear-gradient(to right, gray , cyan);
     background-color: cyan;
@@ -16,8 +28,14 @@ ion-header{
     margin-left:7em;
 }
 .Title2{
+    text-align: justify;
     font-size:1.5em;
+    margin-left:2em;
+    cursor: default;
     
+}
+.new-background-color{
+    --background: rgb(118, 121, 160);
 }
 .body{
     font-size: 1.2em;
@@ -38,12 +56,25 @@ ion-row {
   }
   .links{
       border-right: 0em;
-      text-decoration: underline;
-      color:blue;
+      color:rgb(184, 184, 252);
+      cursor: pointer;
+  }
+  .bodylinks{
+    border-right: 0em;
+    margin-left: 8em;
+    text-decoration: underline;
+    color:blue;
+    cursor: pointer;
   }
   .curlinks{
     border-right: 0em;
     text-decoration: underline;
     font-weight: bolder;
+    cursor: pointer;
+  }
+  .centered{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
   

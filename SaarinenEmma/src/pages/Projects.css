@@ -1,9 +1,13 @@
 ion-row {
-    border-bottom: 1px solid lightblue;
+    border-bottom: 1px solid blue;
     text-align: left;
   }
 .columnHead{color:blue;
     font-weight:bold;
     font-size:large
   }
-  
+  .searchbar{
+    background-color: rgb(118, 121, 160);
+    margin-left: 90em;
+    justify-self: end;
+  }
